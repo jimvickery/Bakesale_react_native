@@ -5,24 +5,25 @@ import ajax from './ajax';
 import DealList from './DealList';
 
 export default class App extends React.Component {
-  state = {
-    deals: [],
-  };
+  // state = {
+  //   deals: [],
+  // };
   async componentDidMount(){
     const deals = await ajax.fetchInitialDeals();
-    this.setState((prevState) => {
-      return { deals };
-    });
+    consloe.log(deals)
+    // this.setState((prevState) => {
+    //   return { deals };
+    // });
   }
   render() {
     return (
       <View style={styles.container}>
       
-      {this.state.deals.lenght > 0 ? (
-        <DealList deals={this.state.deals} />
-         ) : ( 
+        
+        {/* <DealList deals={this.state.deals} /> */}
+        
          <Text style={styles.header}>Bakesale</Text>
-         )}
+        
       </View>
     );
   }
