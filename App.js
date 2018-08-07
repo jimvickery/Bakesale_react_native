@@ -2,18 +2,27 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import { fetchInitialDeals } from './ajax';
 import ajax from './ajax';
+import DealList from './DealList';
 
 export default class App extends React.Component {
+  state = {
+    deals: [],
+  };
   async componentDidMount(){
     const deals = await ajax.fetchInitialDeals();
-    console.log(deals);
+    this.setState((prevState) => {
+      return { deals };
+    });
   }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      
+      {this.state.deals.lenght > 0 ? (
+        <DealList deals={this.state.deals} />
+         ) : ( 
+         <Text style={styles.header}>Bakesale</Text>
+         )}
       </View>
     );
   }
