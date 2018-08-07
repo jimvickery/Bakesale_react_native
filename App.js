@@ -1,7 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+// import { fetchInitialDeals } from './ajax';
+import ajax from './ajax';
 
 export default class App extends React.Component {
+  async componentDidMount(){
+    const deals = await ajax.fetchInitialDeals();
+    console.log(deals);
+  }
   render() {
     return (
       <View style={styles.container}>
