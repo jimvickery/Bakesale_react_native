@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import { fetchInitialDeals } from './ajax';
 import ajax from './ajax';
-import DealList from './DealList';
+// import DealList from './DealList';
 
 export default class App extends React.Component {
   // state = {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
   // };
   async componentDidMount(){
     const deals = await ajax.fetchInitialDeals();
-    consloe.log(deals)
+    console.log(deals);
     // this.setState((prevState) => {
     //   return { deals };
     // });
@@ -19,10 +19,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
       
+      <Text style={styles.header}>Bakesale</Text>
+
         
-        {/* <DealList deals={this.state.deals} /> */}
-        
-         <Text style={styles.header}>Bakesale</Text>
         
       </View>
     );
