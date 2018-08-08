@@ -11,7 +11,7 @@ class DealList extends React.Component {
     return(
       <View style={styles.list}>
       {this.props.deals.map((deal) =>
-        <Text key={deal.key}>{deal.title}</Text>
+        <Text key={deal.key}>{deal.title}{deal.details}</Text>
       )}
         
       </View>
