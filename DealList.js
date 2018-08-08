@@ -15,7 +15,7 @@ class DealList extends React.Component {
       )} */}
       <FlatList
         data={this.props.deals}
-        renderItem={({item}) => <Text>{item.title}~{"\n"}</Text>}
+        renderItem={({item}) => <Text>{item.title}{"\n"}{item.details}{"\n"}{"\n"}</Text>}
       />
 
         
