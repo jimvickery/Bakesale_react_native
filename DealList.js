@@ -9,8 +9,11 @@ class DealList extends React.Component {
   };
   render(){
     return(
-      <View>
-        <Text>Deals...</Text>
+      <View style={styles.list}>
+      {this.props.deals.map((deal) =>
+        <Text key={deal.key}>{deal.title}</Text>
+      )}
+        
       </View>
     );
   }
