@@ -9,11 +9,18 @@ class DealItem extends React.Component{
     deal: PropTypes.object.isRequired,
   };
   render() {
+    const { deal } = this.props;
     return (
       <View>
         <Image source={{ uri: this.props.deal.media[0] }} 
           style={styles.image}
         />
+        <View>
+          <Text>{deal.title} </Text>
+          <Text>{deal.price} </Text>
+          <Text>{deal.cause.name} {"\n"} </Text>
+        </View>
+
       </View>
   );
   }
