@@ -7,6 +7,7 @@ import DealList from './DealList';
 export default class App extends React.Component {
   state = {
     deals: [],
+    currentDealId: null, 
   };
   async componentDidMount(){
     const deals = await ajax.fetchInitialDeals();
@@ -15,12 +16,17 @@ export default class App extends React.Component {
       return { deals };
     });
   }
+  setCurrentDeal = (dealId) => {
+    this.setState((prevState) => ({
+      currentDealId: dealId;
+    }));
+  };
   render() {
     return (
     <View style={styles.container}>
     {this.state.deals.length > 0 ? 
     (
-      <DealList deals={this.state.deals} />
+      <DealList deals={this.state.deals} onItemPress={this.setCurrentDeal} />
     ) : 
     (
       <Text style={styles.header}>Bakesale</Text>
