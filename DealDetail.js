@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ajax from './ajax';
 import { StyleSheet, Text, Image, View   } from 'react-native';
 import {priceDisplay} from './util';
-import ajax from './ajax';
 
 class DealDetail extends React.Component{
   static propTypes = {
