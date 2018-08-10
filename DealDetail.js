@@ -2,17 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, Image, View   } from 'react-native';
 import {priceDisplay} from './util';
-
+import ajax from './ajax';
 
 class DealDetail extends React.Component{
   static propTypes = {
-    deal: PropTypes.object.isRequired,
+    initialDealData: PropTypes.object.isRequired,
   };
-  handlePress = () => {
-    
+  state = {
+    deal: this.props.initialDealData,
   };
+  async componentDidMount(){
+    const fullDeal = await ajax.fetchlDealDetail(this.state.deal.key)
+    // console.log(fullDeal);
+    this.setState({
+      deal: fullDeal,
+    });
+  }
   render() {
-    const { deal } = this.props;
+    const { deal } = this.state;
     return (
       <View>
         <Image source={{ uri: this.props.deal.media[0] }}  style={styles.image} />
@@ -32,7 +39,7 @@ class DealDetail extends React.Component{
 const styles = StyleSheet.create({
   deal: {
     marginHorizontal: 12,
-    marginTop: 12,
+    marginTop: 50,
   },
   image: {
     width: '100%',

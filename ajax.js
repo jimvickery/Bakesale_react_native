@@ -5,9 +5,19 @@ const apiHost = 'https://bakesaleforgood.com';
 export default {
   async fetchInitialDeals() {
     try {
-      let response = await fetch(apiHost + '/api/deals');
-      // let response = await fetch(apiHost);
-      let responseJson = await response.json();
+      const response = await fetch(apiHost + '/api/deals');
+      // const response = await fetch(apiHost);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async fetchlDealDetail(dealId) {
+    try {
+      const response = await fetch(apiHost + '/api/deals/' + dealId);
+      // const response = await fetch(apiHost);
+      const responseJson = await response.json();
       return responseJson;
     } catch (error) {
       console.error(error);
