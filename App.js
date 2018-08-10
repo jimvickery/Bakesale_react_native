@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 // import { fetchInitialDeals } from './ajax';
 import ajax from './ajax';
 import DealList from './DealList';
+import DealDetail from './DealDetail';
 
 export default class App extends React.Component {
   state = {
@@ -17,20 +18,20 @@ export default class App extends React.Component {
     });
   }
   setCurrentDeal = (dealId) => {
-    this.setState((prevState) => ({
-      currentDealId: dealId;
-    }));
+    this.setState({
+      currentDealId: dealId
+    });
   };
   render() {
-    return (
-    <View style={styles.container}>
-    {this.state.deals.length > 0 ? 
-    (
-      <DealList deals={this.state.deals} onItemPress={this.setCurrentDeal} />
-    ) : 
-    (
-      <Text style={styles.header}>Bakesale</Text>
-    )}
+    if (this.state.currentDealId) {
+      return <DealDetail />
+    }
+    if (this.state.deals.length > 0) {
+      return <DealList deals={this.state.deals} onItemPress={this.setCurrentDeal} />
+    }
+      return (
+      <View style={styles.container}>
+       <Text style={styles.header}>Bakesale</Text>
       </View>
     );
   }
