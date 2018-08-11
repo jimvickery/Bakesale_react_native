@@ -12,8 +12,8 @@ class DealDetail extends React.Component{
     deal: this.props.initialDealData,
   };
   async componentDidMount(){
-    const fullDeal = await ajax.fetchlDealDetail(this.state.deal.key)
-    // console.log(fullDeal);
+    const fullDeal = await ajax.fetchlDealDetail(this.state.deal.key);
+    console.log(fullDeal);
     this.setState({
       deal: fullDeal,
     });
@@ -22,7 +22,7 @@ class DealDetail extends React.Component{
     const { deal } = this.state;
     return (
       <View>
-        <Image source={{ uri: this.props.deal.media[0] }}  style={styles.image} />
+        <Image source={{ uri: deal.media[0] }}  style={styles.image} />
         <View style={styles.info}>
           <Text style={styles.title}>{deal.title} </Text>
           <View style={styles.footer}>
@@ -30,7 +30,10 @@ class DealDetail extends React.Component{
             <Text style={styles.price}>{priceDisplay(deal.price)}</Text>
           </View>
         </View>
-        <Text>Details of Deal...</Text>
+        <View>
+          {/* <Image source={{uri: deal.user.avatar}} style={styles.avatar} />
+          <Text>{deal.user.name} </Text> */}
+        </View>
       </View>
   );
   }
