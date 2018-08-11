@@ -208,6 +208,8 @@ If this causes problems for you, you may want to try changing your terminal's co
 ![Alt text](API_images.png?raw=true "Title")
 
 
-Notes to self: On Sat Aut 11, created a branch sillysnap_version to connect the bakesale app to sillysnap api. Can fetch title, but image is missing. No errors, only warnings.
+Notes to self: 
+
+1. On Sat Aut 11, created a branch sillysnap_version to connect the bakesale app to sillysnap api. Can fetch title, but image is missing. No errors, only warnings.
 
 
