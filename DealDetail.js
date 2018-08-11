@@ -36,8 +36,8 @@ class DealDetail extends React.Component{
             <Text style={styles.description}>{deal.user.name} </Text>
           </View>
       )}
-        <View>
-          <Text style={styles.description}>{deal.description} </Text>
+        <View style={styles.description}>
+          <Text>{deal.description} </Text>
         </View>
       </View>
   );
@@ -46,45 +46,55 @@ class DealDetail extends React.Component{
 
 const styles = StyleSheet.create({
   deal: {
-    marginHorizontal: 12,
-    marginTop: 50,
+    marginBottom: 20,
+  },
+  backLink: {
+    marginBottom: 5,
+    color: '#22f',
+    marginLeft: 10,
   },
   image: {
     width: '100%',
     height: 150,
     backgroundColor: '#ccc',
   },
-  info: {
-    padding: 10,
-    backgroundColor: '#fff',
-    borderColor: '#bbb',
-    borderWidth: 1,
-    borderTopWidth: 0,
-  },
   title: {
     fontSize: 16,
+    padding: 10,
     fontWeight: 'bold',
-    marginBottom: 5,
+    backgroundColor: 'rgba(237, 149, 45, 0.4)',
   },
   footer: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  info: {
+    alignItems: 'center',
+  },
+  user: {
+    alignItems: 'center',
   },
   cause: {
-    flex: 2,
+    marginVertical: 10,
   },
   price: {
-    flex: 1,
-    textAlign: 'right',
+    fontWeight: 'bold',
   },
   avatar: {
     width: 60,
     height: 60,
-    margin: 9,
+    borderRadius: 30,
+    margin: 8,
   },
   description: {
-    margin: 9,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderStyle: 'dotted',
+    margin: 10,
+    padding: 10,
   },
 });
-
 
 export default DealDetail;
