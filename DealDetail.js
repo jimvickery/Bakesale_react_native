@@ -21,7 +21,7 @@ class DealDetail extends React.Component{
   render() {
     const { deal } = this.state;
     return (
-      <View>
+      <View style={styles.deal}>
         <Image source={{ uri: deal.media[0] }}  style={styles.image} />
         <View style={styles.info}>
           <Text style={styles.title}>{deal.title} </Text>
@@ -46,7 +46,10 @@ class DealDetail extends React.Component{
 
 const styles = StyleSheet.create({
   deal: {
-    marginBottom: 20,
+    marginTop: 50,
+    marginHorizontal: 8,
+    borderColor: '#bbb',
+    borderWidth: 1,
   },
   backLink: {
     marginBottom: 5,
@@ -63,6 +66,7 @@ const styles = StyleSheet.create({
     padding: 10,
     fontWeight: 'bold',
     backgroundColor: 'rgba(237, 149, 45, 0.4)',
+    width: '100%', 
   },
   footer: {
     flexDirection: 'row',
