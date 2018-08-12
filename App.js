@@ -41,7 +41,10 @@ export default class App extends React.Component {
     }
     if (this.state.deals.length > 0) {
       return (
-      <DealList deals={this.state.deals} onItemPress={this.setCurrentDeal} />
+      <View>
+        <SearchBar />
+        <DealList deals={this.state.deals} onItemPress={this.setCurrentDeal} />
+      </View>
       );
     }
       return (
