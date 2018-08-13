@@ -1,11 +1,11 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 
 class SearchBar extends React.Component{
   static propTypes = {
-    searchDeals: this.propTypes.func.isRequired,
+    searchDeals: this.PropTypes.func.isRequired,
   }
   state={ 
     searchTerm: '',
