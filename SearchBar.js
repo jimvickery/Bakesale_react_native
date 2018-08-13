@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import denounce from 'lodash.denounce';
+import debounce from 'lodash.debounce';
 
 class SearchBar extends React.Component{
   static propTypes = {
@@ -10,10 +10,10 @@ class SearchBar extends React.Component{
   state={ 
     searchTerm: '',
   };
-  denounceSearchDeals = denounce(this.props.searchDeals, 300);
+  debounceSearchDeals = debounce(this.props.searchDeals, 300);
   handleChange = (searchTerm) => {
     this.setState({ searchTerm }, () => {
-      this.denounceSearchDeals(this.state.searchTerm);
+      this.debounceSearchDeals(this.state.searchTerm);
     });
   };
   render() {
