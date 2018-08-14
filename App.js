@@ -9,7 +9,7 @@ import SearchBar from './SearchBar';
 export default class App extends React.Component {
   state = {
     deals: [],
-    dealsFormSearch[],
+    dealsFormSearch: [],
     currentDealId: null, 
   };
   async componentDidMount(){
